@@ -1,0 +1,11 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.java]
+# 자바 파일에 대한 추가 규범을 여기에 적으소서
