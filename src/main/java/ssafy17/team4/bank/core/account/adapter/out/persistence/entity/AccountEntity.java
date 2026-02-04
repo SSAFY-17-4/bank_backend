@@ -27,9 +27,9 @@ public class AccountEntity {
     private Long customerId;
 
     /**
-     * 계좌 유형 (DEPOSIT / LOAN / FEE / SUSPENSE)
+     * 계좌 유형 코드 (운영계에서 관리)
      */
-    private String accountType;
+    private String productCode;
 
     /**
      * 통화 코드 (KRW, USD 등)
