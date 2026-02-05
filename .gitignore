@@ -35,3 +35,20 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Docker ###
+data/
+db_data/
+mysql_data/
+postgres_data/
+
+# Docker log
+*.log
+
+# Dockker env
+.env
+.env.local
+.env.*.local
+
+# Docker temp files
+.docker/
