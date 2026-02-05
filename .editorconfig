@@ -8,4 +8,8 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.java]
-# 자바 파일에 대한 추가 규범을 여기에 적으소서
+# 1. 와일드카드(*) 사용 금지 (개수가 많아도 풀어서 쓰도록 강제)
+ij_java_names_count_to_use_import_on_demand = 99
+
+# 2. 임포트 정렬 규범 (자바, 제트브레인 표준)
+ij_java_imports_layout = java.**, |, javax.**, |, org.**, |, com.**, |, *, |, $*
