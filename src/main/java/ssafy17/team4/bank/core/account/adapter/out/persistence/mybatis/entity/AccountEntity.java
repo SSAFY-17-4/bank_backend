@@ -1,11 +1,12 @@
-package ssafy17.team4.bank.core.account.adapter.out.persistence.entity;
+package ssafy17.team4.bank.core.account.adapter.out.persistence.mybatis.entity;
+
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
+import ssafy17.team4.bank.core.account.domain.model.Account;
 
 /**
  * Account 테이블의 엔티티 클래스 (JDBC/MyBatis용)
@@ -55,4 +56,17 @@ public class AccountEntity {
      * 삭제일시 (소프트 삭제)
      */
     private LocalDateTime deletedAt;
+
+    static public AccountEntity from(Account account) {
+        return new AccountEntity(
+            account.getId(),
+            account.getCustomerId(),
+            account.getProductCode(),
+            account.getCurrency(),
+            account.getStatus().getCode(),
+            null,
+            null,
+            null
+        );
+    }
 }

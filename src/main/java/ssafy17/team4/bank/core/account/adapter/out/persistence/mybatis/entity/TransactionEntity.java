@@ -1,8 +1,12 @@
-package ssafy17.team4.bank.core.account.adapter.out.persistence.entity;
-
-import lombok.*;
+package ssafy17.team4.bank.core.account.adapter.out.persistence.mybatis.entity;
 
 import java.time.LocalDateTime;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * Transaction 테이블의 엔티티 클래스 (JDBC/MyBatis용)
