@@ -1,0 +1,47 @@
+name: 빌드 테스트
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main, dev]
+
+jobs:
+  build-test:
+    name: GraalVM 빌드 및 테스트
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 소스 코드 체크아웃
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. GraalVM Java 21 설정
+      - name: Setup GraalVM
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'graalvm'
+          cache: 'gradle'
+
+      # 3. 실행 권한 부여
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      # 4. 환경 변수 설정 (.env.example -> .env)
+      # 로컬 개발 환경과 동일한 환경 변수 구성을 위해 수행합니다.
+      - name: Create .env from example
+        run: |
+          if [ -f .env.example ]; then
+            cp .env.example .env
+          else
+            echo "Warning: .env.example not found. Using default environment variables."
+          fi
+
+      # 5. 빌드 및 테스트 실행 (기본 프로파일)
+      - name: Run Build and Tests
+        run: |
+          if [ -f .env ]; then
+            export $(grep -v '^#' .env | xargs)
+          fi
+          
+          ./gradlew clean build
