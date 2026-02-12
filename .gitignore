@@ -1,9 +1,11 @@
 HELP.md
 .gradle
+.DS_Store
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+/agent
 
 ### STS ###
 .apt_generated
@@ -35,3 +37,20 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Docker ###
+data/
+db_data/
+mysql_data/
+postgres_data/
+
+# Docker log
+*.log
+
+# Dockker env
+.env
+.env.local
+.env.*.local
+
+# Docker temp files
+.docker/
